@@ -172,15 +172,23 @@ def reverse(pred, index):
     return token_seq
 
 predictions = model.predict(test_X)
-classification_report = classification_report(test_y,predictions)
-accuracy = accuracy_score(test_y,predictions)
-confusion_matrix = confusion_matrix(test_y,predictions)
+
+
+pred = reverse(predictions, {i: t for t, i in tindex.items()})
+
+classification_report = classification_report(y_test,pred)
+accuracy = accuracy_score(y_test,pred)
+confusion_matrix = confusion_matrix(y_test,pred)
 print(classification_report)
 print(accuracy)
 print(confusion_matrix)
-#print(reverse(predictions, {i: t for t, i in tindex.items()}))
+
  
 
+
+
+    
+    
 
 
     
